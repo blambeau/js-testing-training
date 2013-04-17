@@ -41,10 +41,8 @@
     for (var i = 0, max = all.length; i < max; i++) {
       var td = all[i];
       td.onclick = function () {
-        // Replace this section with the code you need
-        alert("Can you change this code so that clicking any cell marks it as a hit?");
-        debugger; // HINT: Examine the value of `this` in the Watch Window to see what you can do to a cell
-      };
+        this.className = 'hit';
+      }
     }
   </script>
 </html>
