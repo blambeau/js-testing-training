@@ -18,6 +18,7 @@
         background-color: blue;
       }
     </style>
+    <script src="./jquery-1.9.1.min.js"></script>
   </head>
   <body>
     <p>
@@ -38,13 +39,9 @@
     </table>
   </body>
   <script type="text/javascript">
-    var all = document.getElementsByTagName('td');
-    for (var i = 0, max = all.length; i < max; i++) {
-      var td = all[i];
-      td.onclick = function () {
-        this.className = 'hit';
-      }
-    }
+    $("td").click(function (event) {
+      $(this).addClass("hit");
+    });
   </script>
   <script type="text/javascript" src="./jasmine.js"></script>
   <script type="text/javascript" src="./jasmine-html.js"></script>
