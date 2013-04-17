@@ -1,5 +1,6 @@
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="jasmine.css">
     <style>
       table {
         border-spacing:0;
@@ -44,5 +45,47 @@
         this.className = 'hit';
       }
     }
+  </script>
+  <script type="text/javascript" src="./jasmine.js"></script>
+  <script type="text/javascript" src="./jasmine-html.js"></script>
+  <script type="text/javascript">
+    describe("clicking a cell", function () {
+      var td = document.getElementsByTagName('td')[1];
+      it("is marked as hit", function () {
+        if (td.className != "")
+          throw new Error("Expected the cell to be blank");
+        td.click();
+        if (td.className != "hit")
+          throw new Error("Expected the cell to be hit");
+      });
+    });
+  </script>
+  <script type="text/javascript">
+    (function() {
+      var jasmineEnv = jasmine.getEnv();
+      jasmineEnv.updateInterval = 1000;
+
+      var htmlReporter = new jasmine.HtmlReporter();
+
+      jasmineEnv.addReporter(htmlReporter);
+
+      jasmineEnv.specFilter = function(spec) {
+        return htmlReporter.specFilter(spec);
+      };
+
+      var currentWindowOnload = window.onload;
+
+      window.onload = function() {
+        if (currentWindowOnload) {
+          currentWindowOnload();
+        }
+        execJasmine();
+      };
+
+      function execJasmine() {
+        jasmineEnv.execute();
+      }
+
+    })();
   </script>
 </html>
