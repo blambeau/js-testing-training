@@ -52,11 +52,9 @@
     describe("clicking a cell", function () {
       var td = document.getElementsByTagName('td')[1];
       it("is marked as hit", function () {
-        if (td.className != "")
-          throw new Error("Expected the cell to be blank");
+        expect(td.className).toBe("");
         td.click();
-        if (td.className != "hit")
-          throw new Error("Expected the cell to be hit");
+        expect(td.className).toBe("hit");
       });
     });
   </script>
