@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <style>
+      table {
+        border-spacing:0;
+        border-collapse:collapse;
+      }
+      td {
+        border: 1px solid black;
+        width: 20px;
+        height: 20px;
+      }
+      .hit {
+        background-color: red;
+      }
+      .miss {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      This is the first iteration of our <a href="http://en.wikipedia.org/wiki/Battleship_(game)">Battleships</a> board.
+    </p>
+    <p>
+      Try clicking a cell.
+    </p>
+    <table>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+  <script type="text/javascript">
+    var all = document.getElementsByTagName('td');
+    for (var i = 0, max = all.length; i < max; i++) {
+      var td = all[i];
+      td.onclick = function () {
+        // Replace this section with the code you need
+        alert("Can you change this code so that clicking any cell marks it as a hit?");
+        debugger; // HINT: Examine the value of `this` in the Watch Window to see what you can do to a cell
+      };
+    }
+  </script>
+</html>
