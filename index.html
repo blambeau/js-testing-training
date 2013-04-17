@@ -38,23 +38,10 @@
       </tr>
     </table>
   </body>
-  <script type="text/javascript">
-    $("td").click(function (event) {
-      $(this).addClass("hit");
-    });
-  </script>
   <script type="text/javascript" src="./jasmine.js"></script>
   <script type="text/javascript" src="./jasmine-html.js"></script>
-  <script type="text/javascript">
-    describe("clicking a cell", function () {
-      var td = document.getElementsByTagName('td')[1];
-      it("is marked as hit", function () {
-        expect(td.className).toBe("");
-        td.click();
-        expect(td.className).toBe("hit");
-      });
-    });
-  </script>
+  <script type="text/javascript" src="./game.js"></script>
+  <script type="text/javascript" src="./tests.js"></script>
   <script type="text/javascript">
     (function() {
       var jasmineEnv = jasmine.getEnv();
