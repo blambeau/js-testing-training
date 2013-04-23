@@ -1,19 +1,31 @@
 // Controller
 var handleClick = function (event) {
-  shootAt(this, showHit);
+  shootAt(this, showHit, showMiss);
 }
 
 // View
 var showHit = function (cell) {
   $(cell).addClass("hit");
-}
+};
+
+var showMiss = function (cell) {
+  $(cell).addClass("miss");
+};
 
 var init = function () {  
   $("td").click(handleClick);
 };
 
 // Model
-var shootAt = function (cell, onHit) {
-  onHit(cell);
+var occupiedCells = [];
+
+var shootAt = function (cell, onHit, onMiss) {
+  if (isCellOccupied(cell)) 
+    onHit(cell);
+  else
+    onMiss(cell);
 };
 
+var isCellOccupied = function (cell) {
+  return (occupiedCells.indexOf(cell) >= 0);
+}
