@@ -27,10 +27,27 @@ describe("shooting", function () {
 // Unit tests
 
 describe("shootAt", function () {
-  it ("calls the hit callback with the cell", function () {
-    var cell = "cell";
-    var onHit = jasmine.createSpy("onHit callback");
-    shootAt(cell, onHit);
-    expect(onHit).toHaveBeenCalledWith(cell);
-  });  
+
+  describe("when the targetted cell is occupied", function () {
+    it ("calls the hit callback with the cell", function () {
+      var occupiedCell = "occupied cell";
+      occupiedCells = [occupiedCell];
+      var onHit = jasmine.createSpy("onHit callback");
+      var onMiss = jasmine.createSpy("onMiss callback"); 
+      shootAt(occupiedCell, onHit, onMiss);
+      expect(onHit).toHaveBeenCalledWith(occupiedCell);
+    });
+  });
+
+  describe("when the targetted cell is free", function () {
+    it("calls the miss callback with the cell", function () {
+      var freeCell = "free cell";
+      occupiedCells = [];
+      var onHit = jasmine.createSpy("onHit callback");
+      var onMiss = jasmine.createSpy("onMiss callback"); 
+      shootAt(freeCell, onHit, onMiss);
+      expect(onMiss).toHaveBeenCalledWith(freeCell);
+    });
+  });
+  
 });
