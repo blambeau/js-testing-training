@@ -1,0 +1,22 @@
+{
+  "name": "js-testing-training",
+  "version": "0.0.0",
+  "description": "JavaScript training for Amazon",
+  "main": "server.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattwynne/js-testing-training.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "testing",
+    "training",
+    "amazon"
+  ],
+  "author": "Matt Wynne & Julien Biezemans",
+  "license": "BSD",
+  "readmeFilename": "README.md"
+}
