@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "description": "JavaScript training for Amazon",
   "main": "server.js",
-  "dependencies": {},
+  "dependencies": {
+    "node-static": "~0.6.9"
+  },
   "devDependencies": {},
   "scripts": {},
   "repository": {
