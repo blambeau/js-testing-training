@@ -29,3 +29,10 @@ var shootAt = function (cell, onHit, onMiss) {
 var isCellOccupied = function (cell) {
   return (occupiedCells.indexOf(cell) >= 0);
 }
+
+if (typeof module !== "undefined") {
+  module.exports = {
+    shootAt: shootAt,
+    occupiedCells: occupiedCells
+  };
+}

@@ -6,7 +6,9 @@
   "dependencies": {
     "node-static": "~0.6.9"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jasmine-node": "~1.7.0"
+  },
   "scripts": {},
   "repository": {
     "type": "git",
