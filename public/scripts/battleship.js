@@ -1,6 +1,8 @@
+var game;
+
 // Controller
 var handleClick = function (event) {
-  shootAt(this, showHit, showMiss);
+  game.shootAt(this, showHit, showMiss);
 }
 
 // View
@@ -12,27 +14,27 @@ var showMiss = function (cell) {
   $(cell).addClass("miss");
 };
 
-var init = function () {  
+var init = function () {
+  game = new Game();
   $("td").click(handleClick);
 };
 
 // Model
-var occupiedCells = [];
+function Game() {
+  this.occupiedCells = [];
+}
 
-var shootAt = function (cell, onHit, onMiss) {
-  if (isCellOccupied(cell)) 
+Game.prototype.shootAt = function (cell, onHit, onMiss) {
+  if (this.isCellOccupied(cell))
     onHit(cell);
   else
     onMiss(cell);
 };
 
-var isCellOccupied = function (cell) {
-  return (occupiedCells.indexOf(cell) >= 0);
+Game.prototype.isCellOccupied = function (cell) {
+  return (this.occupiedCells.indexOf(cell) >= 0);
 }
 
 if (typeof module !== "undefined") {
-  module.exports = {
-    shootAt: shootAt,
-    occupiedCells: occupiedCells
-  };
+  module.exports = { Game: Game };
 }

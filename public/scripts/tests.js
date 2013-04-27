@@ -14,7 +14,7 @@ describe("shooting", function () {
   describe("when I hit a ship", function () {
     var td = $("td").get(1);
     var $td = $(td);
-    occupiedCells.push(td);
+    game.occupiedCells.push(td);
 
     it("marks the cell as a hit", function() {
       expect($td.hasClass("hit")).toBeFalsy();
