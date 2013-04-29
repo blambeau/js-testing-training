@@ -12,12 +12,12 @@ function Controller(game, view) {
 
 Controller.prototype.handleClick = function (event) {
   this.game.shootAt(event.target, this.view.showHit, this.view.showMiss);
-}
+};
 
 // View
 function View(template) {
   $("#game-container").html(template);
-};
+}
 
 View.prototype.showHit = function (cell) {
   $(cell).addClass("hit");
@@ -53,7 +53,7 @@ Game.prototype.shootAt = function (cell, onHit, onMiss) {
 
 Game.prototype.isCellOccupied = function (cell) {
   return (this.occupiedCells.indexOf(cell) >= 0);
-}
+};
 
 if (typeof module !== "undefined") {
   module.exports = { Game: Game, Controller: Controller };
