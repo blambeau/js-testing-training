@@ -10,7 +10,9 @@
     "jasmine-node": "~1.7.0",
     "jshint": "~1.1.0"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "jshint . && jasmine-node spec"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/mattwynne/js-testing-training.git"
