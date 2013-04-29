@@ -1,21 +1,24 @@
-var game;
+var game, view;
 
 // Controller
 var handleClick = function (event) {
-  game.shootAt(this, showHit, showMiss);
+  game.shootAt(this, view.showHit, view.showMiss);
 }
 
 // View
-var showHit = function (cell) {
+function View() {};
+
+View.prototype.showHit = function (cell) {
   $(cell).addClass("hit");
 };
 
-var showMiss = function (cell) {
+View.prototype.showMiss = function (cell) {
   $(cell).addClass("miss");
 };
 
 var init = function () {
   game = new Game();
+  view = new View();
   $("td").click(handleClick);
 };
 
