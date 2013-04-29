@@ -35,5 +35,10 @@ describe("shooting", function () {
       $td.click();
       expect($td.hasClass("hit")).toBeTruthy();
     });
+
+    it("does not mark the cell as a miss", function() {
+      $td.click();
+      expect($td.hasClass("miss")).toBeFalsy();
+    });
   });
 });
