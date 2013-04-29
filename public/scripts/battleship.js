@@ -1,8 +1,13 @@
-var game, view;
+var controller, view, game;
 
 // Controller
-var handleClick = function (event) {
-  game.shootAt(this, view.showHit, view.showMiss);
+function Controller(game, view) {
+  this.game = game;
+  this.view = view;
+}
+
+Controller.prototype.handleClick = function (event) {
+  this.game.shootAt(event.target, this.view.showHit, this.view.showMiss);
 }
 
 // View
@@ -19,7 +24,11 @@ View.prototype.showMiss = function (cell) {
 var init = function () {
   game = new Game();
   view = new View();
-  $("td").click(handleClick);
+  controller = new Controller(game, view);
+
+  $("td").click(function (event) {
+    controller.handleClick(event);
+  });
 };
 
 // Model
@@ -39,5 +48,5 @@ Game.prototype.isCellOccupied = function (cell) {
 }
 
 if (typeof module !== "undefined") {
-  module.exports = { Game: Game };
+  module.exports = { Game: Game, Controller: Controller };
 }
