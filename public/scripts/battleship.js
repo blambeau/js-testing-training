@@ -15,7 +15,9 @@ Controller.prototype.handleClick = function (event) {
 }
 
 // View
-function View() {};
+function View(template) {
+  $("#game-container").html(template);
+};
 
 View.prototype.showHit = function (cell) {
   $(cell).addClass("hit");
@@ -30,8 +32,9 @@ View.prototype.onCellShot = function (callback) {
 };
 
 var startBattleshipGame = function () {
+  var gridTemplate = $("#template-battleship-grid").text();
   var game = new Game();
-  var view = new View();
+  var view = new View(gridTemplate);
   var controller = new Controller(game, view);
   return game;
 };
