@@ -7,7 +7,8 @@
     "node-static": "~0.6.9"
   },
   "devDependencies": {
-    "jasmine-node": "~1.7.0"
+    "jasmine-node": "~1.7.0",
+    "jshint": "~1.1.0"
   },
   "scripts": {},
   "repository": {
