@@ -2,8 +2,14 @@ var controller, view, game;
 
 // Controller
 function Controller(game, view) {
-  this.game = game;
-  this.view = view;
+  var self = this;
+
+  self.game = game;
+  self.view = view;
+
+  view.onCellShot(function (event) {
+    self.handleClick(event);
+  });
 }
 
 Controller.prototype.handleClick = function (event) {
@@ -21,14 +27,14 @@ View.prototype.showMiss = function (cell) {
   $(cell).addClass("miss");
 };
 
+View.prototype.onCellShot = function (callback) {
+  $("td").click(callback);
+};
+
 var init = function () {
   game = new Game();
   view = new View();
   controller = new Controller(game, view);
-
-  $("td").click(function (event) {
-    controller.handleClick(event);
-  });
 };
 
 // Model
