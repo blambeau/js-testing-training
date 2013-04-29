@@ -1,5 +1,3 @@
-var controller, view, game;
-
 // Controller
 function Controller(game, view) {
   var self = this;
@@ -31,10 +29,11 @@ View.prototype.onCellShot = function (callback) {
   $("td").click(callback);
 };
 
-var init = function () {
-  game = new Game();
-  view = new View();
-  controller = new Controller(game, view);
+var startBattleshipGame = function () {
+  var game = new Game();
+  var view = new View();
+  var controller = new Controller(game, view);
+  return game;
 };
 
 // Model
